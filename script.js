@@ -252,8 +252,8 @@ async function playHypeAudio(text) {
     const utterance = new SpeechSynthesisUtterance(sanitizedText);
     
     // Configure the voice settings for better quality
-    utterance.rate = 1.1; // Slightly faster for energy
-    utterance.pitch = 1.1; // Slightly higher pitch for excitement
+    utterance.rate = 0.7; // Much slower for clarity and natural speech
+    utterance.pitch = 1.0; // Normal pitch (adjustable)
     utterance.volume = 1.0; // Full volume
     
     // Set the selected high-quality voice
