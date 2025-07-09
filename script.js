@@ -143,8 +143,23 @@ async function generateHypeBlurb(productInfo) {
 function sanitizeTextForSpeech(text) {
   // Step 1: Replace em-dashes and en-dashes with commas for natural pauses
   let cleanedText = text.replace(/[—–]/g, ',');
+
+  // Step 2: Add Valley Girl inflection and emphasis
+  // Add pauses and emphasis for Valley Girl speech patterns
+  cleanedText = cleanedText.replace(/\byeehaw\b/gi, "Yee, haw");
+  cleanedText = cleanedText.replace(/\bqueen\b/gi, "queen");
+  cleanedText = cleanedText.replace(/\bomg\b/gi, "oh, my, god");
+  cleanedText = cleanedText.replace(/\btotally\b/gi, "totally");
+  cleanedText = cleanedText.replace(/\blike\b/gi, "like,");
+  cleanedText = cleanedText.replace(/\bso\b/gi, "so,");
+  cleanedText = cleanedText.replace(/\bseriously\b/gi, "seriously,");
+  cleanedText = cleanedText.replace(/\bobviously\b/gi, "obviously,");
   
-  // Step 2: Remove emojis and other non-alphanumeric characters except standard punctuation
+  // Add Valley Girl uptalk (rising intonation) with commas
+  cleanedText = cleanedText.replace(/\b(this|that|these|those)\b/gi, "$1,");
+  cleanedText = cleanedText.replace(/\b(amazing|gorgeous|stunning|perfect)\b/gi, "$1,");
+  
+  // Step 3: Remove emojis and other non-alphanumeric characters except standard punctuation
   cleanedText = cleanedText.replace(/[^\w\s.,!?;:'"()-]/g, '');
   
   return cleanedText.trim();
@@ -251,9 +266,9 @@ async function playHypeAudio(text) {
     // Create a new speech synthesis utterance
     const utterance = new SpeechSynthesisUtterance(sanitizedText);
     
-    // Configure the voice settings for better quality
-    utterance.rate = 0.7; // Much slower for clarity and natural speech
-    utterance.pitch = 1.0; // Normal pitch (adjustable)
+    // Configure the voice settings for Valley Girl style
+    utterance.rate = 0.8; // Slightly slower but with more energy
+    utterance.pitch = 1.2; // Higher pitch for Valley Girl sound
     utterance.volume = 1.0; // Full volume
     
     // Set the selected high-quality voice
