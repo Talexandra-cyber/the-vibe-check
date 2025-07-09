@@ -146,18 +146,12 @@ function sanitizeTextForSpeech(text) {
 
   // Step 2: Add Valley Girl inflection and emphasis
   // Add pauses and emphasis for Valley Girl speech patterns
-  cleanedText = cleanedText.replace(/\byeehaw\b/gi, "Yee, haw");
+  cleanedText = cleanedText.replace(/\byeehaw\b/gi, "Yee haw");
   cleanedText = cleanedText.replace(/\bqueen\b/gi, "queen");
-  cleanedText = cleanedText.replace(/\bomg\b/gi, "oh, my, god");
+  cleanedText = cleanedText.replace(/\bomg\b/gi, "oh my god");
   cleanedText = cleanedText.replace(/\btotally\b/gi, "totally");
-  cleanedText = cleanedText.replace(/\blike\b/gi, "like,");
-  cleanedText = cleanedText.replace(/\bso\b/gi, "so,");
-  cleanedText = cleanedText.replace(/\bseriously\b/gi, "seriously,");
-  cleanedText = cleanedText.replace(/\bobviously\b/gi, "obviously,");
   
   // Add Valley Girl uptalk (rising intonation) with commas
-  cleanedText = cleanedText.replace(/\b(this|that|these|those)\b/gi, "$1,");
-  cleanedText = cleanedText.replace(/\b(amazing|gorgeous|stunning|perfect)\b/gi, "$1,");
   
   // Step 3: Remove emojis and other non-alphanumeric characters except standard punctuation
   cleanedText = cleanedText.replace(/[^\w\s.,!?;:'"()-]/g, '');
@@ -266,9 +260,9 @@ async function playHypeAudio(text) {
     // Create a new speech synthesis utterance
     const utterance = new SpeechSynthesisUtterance(sanitizedText);
     
-    // Configure the voice settings for Valley Girl style
-    utterance.rate = 0.8; // Slightly slower but with more energy
-    utterance.pitch = 1.2; // Higher pitch for Valley Girl sound
+    // Configure the voice settings for natural, energetic speech
+    utterance.rate = 1.1; // Slightly faster for energy
+    utterance.pitch = 1.05; // Just slightly higher pitch
     utterance.volume = 1.0; // Full volume
     
     // Set the selected high-quality voice
