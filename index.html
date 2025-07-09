@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Vibe Check</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>The Vibe Check</h1>
+    
+    <div class="file-upload-wrapper">
+      <input type="file" id="image-uploader" accept="image/*">
+      <label for="image-uploader" class="file-upload-label">Choose Image File</label>
+    </div>
+    
+    <img id="image-preview" />
+    
+    <div id="results-container">
+      <h3>The Deets:</h3>
+      <pre id="json-output"></pre>
+      
+      <h3>The Hype Blurb:</h3>
+      <p id="blurb-output"></p>
+      
+      <h3>Hear the Hype:</h3>
+      <button id="play-audio-btn">▶️ Play Vibe</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html> 
